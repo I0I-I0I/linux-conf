@@ -1,0 +1,24 @@
+Installing WSL Ubuntu
+
+0. sudo apt update && sudo apt upgrage
+1.zsh --  https://www.youtube.com/watch?v=ZNHkS4EnXhQ&t
+    1) sudo apt install zsh
+    2) sudo chsh -s $(which zsh)
+    3) sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    4) https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+    5) https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+    6) open .zshrc and add in plugins (zsh-autosuggestions zsh-syntax-highlighting)
+    7) theme = aussiegeek
+2.python -- https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
+    1) sudo add-apt-repository ppa:deadsnakes/ppa
+    2) sudo apt-get update
+    3) sudo apt install pyton3.12
+    4) sudo apt install pyton3.12-distutils
+3.nvim -- https://www.youtube.com/watch?v=PA7zZNJXJEk&t
+    1) sudo add-apt-repository ppa:neovim-ppa/unstable
+    2) sudo apt-get update && sudo apt-get install neovim
+    3) sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    4) apt install python3-neovim
+4.node.js and npm --
+    1) https://github.com/nodesource/distributions/blob/master/README.md#debinstall
