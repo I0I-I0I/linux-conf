@@ -45,15 +45,6 @@ vim.keymap.set("n", "C-<Tab>", "gT")
 vim.keymap.set("i", "<F1>", "<C-x><C-f>")
 
 -- Mouse
-
-local function mouseToggle()
-    if vim.opt.mouse == true then
-        vim.cmd([[set mouse=]])
-    else
-        vim.cmd([[set mouse=a]])
-    end
-end
-
 vim.keymap.set("n", "<leader>mn", ":set mouse=a<cr>")
 vim.keymap.set("n", "<leader>mf", ":set mouse=<cr>")
 
