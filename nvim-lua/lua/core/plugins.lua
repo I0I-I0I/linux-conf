@@ -65,7 +65,9 @@ require("lazy").setup({
     { "hrsh7th/vim-vsnip" },
     { "hrsh7th/vim-vsnip-integ" },
     -- Emmet
-    { "mattn/emmet-vim" },
-    { "jackieaskins/cmp-emmet", build = "npm run release" }
+    -- { 'jackieaskins/cmp-emmet', build = 'npm run release'  }
+	{
+	"olrtg/nvim-emmet",
+	},
 })
 
