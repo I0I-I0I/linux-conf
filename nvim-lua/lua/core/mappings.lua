@@ -13,7 +13,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Puste
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Change
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
@@ -44,31 +44,43 @@ vim.keymap.set("n", "<C-w>V", ":vsplit ")
 -- Moving to tabs
 vim.keymap.set("n", "<C-l>", "<C-w>w")
 -- Resizing
-vim.keymap.set("n", "<C-w>-", ":vertical resize -5<cr>", { silent = true } )
-vim.keymap.set("n", "<C-w>+", ":vertical resize +5<cr>", { silent = true } )
+vim.keymap.set("n", "<C-w>-", ":vertical resize -5<cr>", { silent = true })
+vim.keymap.set("n", "<C-w>+", ":vertical resize +5<cr>", { silent = true })
 -- Window tabs
-vim.keymap.set("n", "<C-w>i", ":tabnew ~/.config/nvim<cr>:Neotree<cr>")
-vim.keymap.set("n", "<C-w>c", ":tabclose<cr>")
-vim.keymap.set("n", "<C-w>t", ":tabnew<cr>:Neotree float focus<cr>")
+vim.keymap.set("n", "<C-w>i", ":tabnew ~/.config/nvim<cr>", { silent = true })
+vim.keymap.set("n", "<C-w>c", ":tabclose<cr>", { silent = true })
+vim.keymap.set("n", "<C-w>t", ":tabnew<cr>", { silent = true })
 vim.keymap.set("n", "<C-w>T", ":tabnew ")
 -- Moving to window tabs
 vim.keymap.set("n", "<Tab>", "gt")
 vim.keymap.set("n", "<S-Tab>", "gT")
 
 -- Mouse
-vim.keymap.set("n", "<leader>mn", ":set mouse=a<cr>")
-vim.keymap.set("n", "<leader>mf", ":set mouse=<cr>")
+vim.keymap.set("n", "<leader>mn", ":set mouse=a<cr>:echo ' mouse on'<cr>")
+vim.keymap.set("n", "<leader>mf", ":set mouse=<cr>:echo ' mouse off'<cr>")
 
 -- NeoTree
 vim.keymap.set("n", "<C-b>", ":Neotree toggle float focus<cr>")
 
 -- Emmet
-vim.keymap.set({ "n", "v" }, '<leader>w', require('nvim-emmet').wrap_with_abbreviation)
+vim.keymap.set({ "n", "v" }, "<leader>w", require("nvim-emmet").wrap_with_abbreviation)
 
 -- Trouble
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
-vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+vim.keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end)
+vim.keymap.set("n", "<leader>xw", function()
+	require("trouble").toggle("workspace_diagnostics")
+end)
+vim.keymap.set("n", "<leader>xd", function()
+	require("trouble").toggle("document_diagnostics")
+end)
+vim.keymap.set("n", "<leader>xq", function()
+	require("trouble").toggle("quickfix")
+end)
+vim.keymap.set("n", "<leader>xl", function()
+	require("trouble").toggle("loclist")
+end)
+vim.keymap.set("n", "gR", function()
+	require("trouble").toggle("lsp_references")
+end)
