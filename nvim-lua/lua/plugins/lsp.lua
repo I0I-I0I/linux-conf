@@ -7,7 +7,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- }
 
 lspconfig.emmet_language_server.setup({
-  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+  filetypes = { "css", "eruby", "html", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
   -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
   -- **Note:** only the options listed in the table are supported.
   init_options = {
@@ -22,7 +22,7 @@ lspconfig.emmet_language_server.setup({
     --- @type "always" | "never" Defaults to `"always"`
     showExpandedAbbreviation = "always",
     --- @type boolean Defaults to `false`
-    showSuggestionsAsSnippets = true,
+    showSuggestionsAsSnippets = false,
     --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
     syntaxProfiles = {},
     --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
@@ -34,9 +34,9 @@ lspconfig.pyright.setup {
     capabilities = capabilities,
 }
 
--- lspconfig.lua_ls.setup {
---     capabilities = capabilities,
--- }
+lspconfig.lua_ls.setup {
+    capabilities = capabilities,
+}
 
 lspconfig.cssls.setup {
     capabilities = capabilities,
@@ -48,7 +48,22 @@ lspconfig.html.setup {
     filetypes = { "html" }
 }
 
-lspconfig.tsserver.setup {}
+lspconfig.vtsls.setup {
+    capabilities = capabilities,
+	-- customize handlers for commands
+	    handlers = {
+	        source_definition = function(err, locations) end,
+	        file_references = function(err, locations) end,
+	        code_action = function(err, actions) end,
+	    },
+	    -- automatically trigger renaming of extracted symbol
+	    refactor_auto_rename = true,
+}
+
+-- lspconfig.tsserver.setup {
+--     capabilities = capabilities,
+-- }
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

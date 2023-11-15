@@ -27,9 +27,20 @@ require("lazy").setup({
 	},
 
     -- Themes
+    { "folke/lsp-colors.nvim" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "akinsho/horizon.nvim", version = "*" },
 	{ "joshdick/onedark.vim" },
-    { "rebelot/kanagawa.nvim" },
-    { "mhartington/oceanic-next" },
+	{ "rebelot/kanagawa.nvim" },
+	{ "mhartington/oceanic-next" },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{ "nobbmaestro/nvim-andromeda" },
+    { "tjdevries/colorbuddy.nvim", branch = "dev" },
 
     -- LSP
 	{ "neovim/nvim-lspconfig" },
@@ -38,8 +49,16 @@ require("lazy").setup({
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/nvim-cmp" },
+    -- Conform
+    {
+        'stevearc/conform.nvim',
+        opts = {},
+    },
     -- Mason
     { "williamboman/mason.nvim" },
+    {'williamboman/mason-lspconfig.nvim'},
+
+    -- Search
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.4",
@@ -66,8 +85,19 @@ require("lazy").setup({
     { "hrsh7th/vim-vsnip-integ" },
     -- Emmet
     -- { 'jackieaskins/cmp-emmet', build = 'npm run release'  }
+	{ "olrtg/nvim-emmet" },
+    --
+    -- Moving
+    { "phaazon/hop.nvim" },
+    { "ThePrimeagen/harpoon" },
+
+    -- Git
+    { "tpope/vim-fugitive" },
+    --- History file change
+    -- { "mbbill/undotree" },
+
 	{
-	"olrtg/nvim-emmet",
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" }
 	},
 })
-

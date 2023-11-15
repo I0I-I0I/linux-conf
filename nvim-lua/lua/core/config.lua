@@ -2,10 +2,16 @@
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.tabstop = 4
-vim.opt.smarttab = true
+vim.opt.smarttab = false
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.showtabline = 1
+
+-- Color column
+vim.opt.colorcolumn = "80"
+
+-- word separators
+vim.cmd("set iskeyword+=,,!,^34,^_")
 
 -- Format options
 vim.g.formatoptions = "qrn1"
@@ -58,13 +64,19 @@ vim.opt.guicursor = "i-ci-ve:hor30"
 -- Showmode
 vim.opt.showmode = true
 
+-- Autocomplite
+vim.cmd("filetype plugin on")
+vim.api.nvim_create_autocmd("InsertEnter", {
+   pattern = {"*.js"},
+   command = "set omnifunc=javascriptcomplete#CompleteJS"
+})
+
 -- Folding
 vim.opt.foldmethod = "indent"
 vim.opt.foldcolumn = "0"
 vim.opt.foldlevel = 999
 
 vim.opt.laststatus = 2
--- vim.opt.statusline = "%{&paste?'[paste] ':''} %{get(b:,'gitsigns_status', '') % 'line'}"
 
 local function git_branch()
     local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -105,4 +117,3 @@ local function statusline()
 end
 
 vim.opt.statusline = statusline()
-

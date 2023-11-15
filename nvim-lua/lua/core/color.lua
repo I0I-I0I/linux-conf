@@ -5,16 +5,28 @@ vim.opt.termguicolors = true
 -- onedark
 -- kanagawa
 -- OceanicNext
+-- tokyonight
+-- horizon
+-- andromeda
 
 function SetColor(color)
-	color = color or "habamax"
-	vim.cmd.colorscheme(color)
+    if color == "andromeda" then
+        require("andromeda").setup({
+            preset = "andromeda",
+            transparent_bg = true,
+            styles = {
+                italic = true
+            }
+        })
+    else
+        color = color or "habamax"
+        vim.cmd.colorscheme(color)
 
-	vim.api.nvim_set_hl(0, "Normal", {bg = "#080808"})
-	vim.api.nvim_set_hl(0, "NormalFloat", {bg = "#080808"})
-	vim.api.nvim_set_hl(0, "ColorColumn", {bg = "none"})
-	vim.api.nvim_set_hl(0, "LineNr", {bg = "none"})
+--        vim.api.nvim_set_hl(0, "Normal", {bg = "#080808"})
+--        vim.api.nvim_set_hl(0, "NormalFloat", {bg = "#080808"})
+        vim.api.nvim_set_hl(0, "ColorColumn", {bg = "#A8A8A8"})
+        vim.api.nvim_set_hl(0, "LineNr", {bg = "none"})
+    end
 end
 
-SetColor("retrobox")
-
+SetColor("catppuccin-latte")
